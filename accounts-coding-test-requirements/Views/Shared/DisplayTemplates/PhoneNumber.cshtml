@@ -1,0 +1,10 @@
+﻿@model string
+
+@{ 
+    var number = Model?.Length == 10 ? string.Format("({0}) {1}-{2}",
+         Model.Substring(0, 3),
+         Model.Substring(3, 3),
+         Model.Substring(6)) : Model; // Return unformatted phone if the input format is unknown
+}
+
+@number

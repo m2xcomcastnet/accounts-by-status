@@ -1,0 +1,14 @@
+﻿@model AccountModel
+
+<ul class="account-data-list">
+    <li><label>Name:</label>@Model.LastName, @Model.FirstName</li>
+    <li><label>Email:</label>@Model.Email</li>
+    <li><label>Phone Number:</label>@Html.DisplayFor(model => model.PhoneNumber, "PhoneNumber")</li>
+    <li><label>Amount Due:</label>@Model.AmountDue.ToString("$00.00")</li>
+
+    @* Marketing note #9: Hide the date completely for inactive accounts *@
+    @if (Model.PaymentDueDate.HasValue)
+    {
+        @: <li><label>Due Date:</label>(@Model.PaymentDueDate.Value.ToString("MM/dd/yyyy"))</li>
+    }
+</ul>
